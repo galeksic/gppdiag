@@ -55,6 +55,8 @@ function gppdiag_config()
 <p>Please, make sure you don't have any personal or sensitive data in reports, if you want to share your reports with others.</p>
 
 <p><textarea class="large-text code" rows="25" id="gppdiag-report">
+gppdiag ### <?php echo date( 'c' ); ?> #########################################################
+
 GooglePublisherPlugin_Version
 [<?php echo get_option( 'GooglePublisherPlugin_Version' ); ?>]
 
@@ -102,8 +104,8 @@ document.createElement('img');img.src = 'http://www.gstatic.com/publisher_plugin
 
 <script>
 var gstaticMarker = document.createElement('img');
-gstaticMarker.onerror = function() { document.getElementById("gppdiag-report").value += '[Failed]'; };
-gstaticMarker.onload = function() { document.getElementById("gppdiag-report").value += '[Success]'; };
+gstaticMarker.onerror = function() { document.getElementById("gppdiag-report").value += "[Failed]\n\n###############################################################################################"; };
+gstaticMarker.onload = function() { document.getElementById("gppdiag-report").value += "[Success]\n\n###############################################################################################"; };
 gstaticMarker.src = 'http://www.gstatic.com/publisher_plugin/red_marker_small.svg';
 document.getElementById("gstaticMarkerID").appendChild(gstaticMarker);
 </script>
