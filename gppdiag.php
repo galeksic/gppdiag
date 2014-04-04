@@ -92,19 +92,21 @@ foreach ( array('filter', 'json', 'pcre', 'SPL') as $extension) {
   }
 }
 ?>
+
+document.createElement('img');img.src = 'http://www.gstatic.com/publisher_plugin/red_marker_small.svg';
 </textarea></p>
-<!--
-  function UrlExists(url) {
-    var http = new XMLHttpRequest();
-    http.open('HEAD', url, false);
-    http.send();
-    return http.status != 404;
-  }
--->
 
 <h2>Access to gstatic.com</h2>
 <p>You should see <a href="http://www.gstatic.com/publisher_plugin/red_marker_small.svg">red marker</a> below.</p>
-<p><img src="http://www.gstatic.com/publisher_plugin/red_marker_small.svg" title="red marker" /></p>
+<p id="gstaticMarkerID"></p>
+
+<script>
+var gstaticMarker = document.createElement('img');
+gstaticMarker.onerror = function() { document.getElementById("gppdiag-report").value += '[Failed]'; };
+gstaticMarker.onload = function() { document.getElementById("gppdiag-report").value += '[Success]'; };
+gstaticMarker.src = 'http://www.gstatic.com/publisher_plugin/red_marker_small.svg';
+document.getElementById("gstaticMarkerID").appendChild(gstaticMarker);
+</script>
 
 <h2>Help</h2>
 <p>This plugin shows you some more-less relevant settings and parameters from Wordpress installation, if you have any issues with official plugin.</p>
