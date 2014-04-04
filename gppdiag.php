@@ -29,14 +29,12 @@ if(!defined('ABSPATH')) {
   exit;
 }
 
-define( 'GPPDIAG_PUGIN_NAME', 'GPP Diag (unofficial)');
-define( 'GPPDIAG_PLUGIN_DIRECTORY', 'gppdiag');
+if(!defined('ABSPATH')) {
+  define( 'GPPDIAG_PUGIN_NAME', 'GPP Diag (unofficial)');
+}
 
 // create custom plugin settings menu
 add_action( 'admin_menu', 'gppdiag_create_menu' );
-
-//call register settings function
-//add_action( 'admin_init', 'gppdiag_register_settings' );
 
 function gppdiag_create_menu() {
 	add_options_page( GPPDIAG_PUGIN_NAME, GPPDIAG_PUGIN_NAME, 'manage_options', 'gppdiag_settings', 'gppdiag_config');
@@ -44,14 +42,17 @@ function gppdiag_create_menu() {
 
 function gppdiag_config()
 {
-
 ?>
 
 <div class="wrap">
+
 <h2><a href="https://wordpress.org/plugins/google-publisher/" alt="Google Publisher Plugin">Google Publisher Plugin</a> Diagnostics (unofficial)</h2>
+<p>This is very simple unofficial helper tool for the official Google Publisher Plugin.</p>
+
 <div class="narrow">
-<h2>Help</h2>
-<p>While configuring this plugin - don't use AdSense "live" code. Use placeholder text of your choice or this:</p>
+
+<h2>Report</h2>
+<p>Please, make sure you don't have any personal or sensitive data in reports, if you want to share your reports with others.</p>
 
 <p><textarea class="large-text code" rows="25" id="gppdiag-report">
 GooglePublisherPlugin_Version
@@ -82,15 +83,13 @@ phpversion()
 [<?php echo phpversion(); ?>]
 
 REQUIRED_EXTENSIONS
-<?php 
+<?php
 foreach ( array('filter', 'json', 'pcre', 'SPL') as $extension) {
   if (!extension_loaded($extension)) {
     echo "ERROR " . $extension . PHP_EOL;
   }else{
     echo "OK " . $extension . PHP_EOL;
-
   }
-  
 }
 ?>
 </textarea></p>
@@ -102,19 +101,20 @@ foreach ( array('filter', 'json', 'pcre', 'SPL') as $extension) {
     return http.status != 404;
   }
 -->
-<h2>Access to gstatic.com</h2>
 
+<h2>Access to gstatic.com</h2>
 <p>You should see <a href="http://www.gstatic.com/publisher_plugin/red_marker_small.svg">red marker</a> below.</p>
 <p><img src="http://www.gstatic.com/publisher_plugin/red_marker_small.svg" title="red marker" /></p>
 
+<h2>Help</h2>
+<p>This plugin shows you some more-less relevant settings and parameters from Wordpress installation, if you have any issues with official plugin.</p>
+<p>All you can see above on this page, is all this plugin is doing, it doesn't make any change, it doesn't affect your Wordpress installation in any way, nor ad serving.</p>
+<p>If you don't need this plugin - uninstall it. You can always install it back, when and if needed.</p>
 
 </div>
+
 </div>
 
 <?php
-
 }
-
-
-
 ?>
