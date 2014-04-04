@@ -29,7 +29,7 @@ if(!defined('ABSPATH')) {
   exit;
 }
 
-if(!defined('ABSPATH')) {
+if(!defined('GPPDIAG_PUGIN_NAME')) {
   define( 'GPPDIAG_PUGIN_NAME', 'GPP Diag (unofficial)');
 }
 
