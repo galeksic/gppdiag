@@ -1,4 +1,4 @@
 gppdiag
 =======
 
-Thank you again, description, for being optional thank you thank you thank you!
+AdSense for Wordpress plugin (Google Publisher plugin) diagnostic tool. Very basic, and simple.
